@@ -1,35 +1,65 @@
 import React from 'react';
+import './banner.css'
+import BannerItem from './BannerItem';
+
+const bannerData = [
+    {
+        image: 'https://i.ibb.co/cxDYGSs/portrait-Photography.jpg',
+        prev: 6,
+        id: 1,
+        next: 2,
+        name: 'Portrait Photography',
+        price: 600
+    },
+    {
+        image: 'https://i.ibb.co/FKyY792/jounerlism-Photography.jpg',
+        prev: 1,
+        id: 2,
+        next: 3,
+        name: 'Photojournalism',
+        price: 400
+    },
+    {
+        image: 'https://i.ibb.co/YbFKv1R/feshion-Photography.jpg',
+        prev: 2,
+        id: 3,
+        next: 4,
+        name: 'Fashion Photography',
+        price: 800
+    },
+    {
+        image: 'https://i.ibb.co/NY7Q6hW/sport-Photography.jpg',
+        prev: 3,
+        id: 4,
+        next: 5,
+        name: 'Sports Photography',
+        price: 500
+    },
+    {
+        image: 'https://i.ibb.co/DQnc1dq/Education-Photography.jpg',
+        prev: 4,
+        id: 5,
+        next: 6,
+        name: 'Editorial Photography',
+        price: 400
+    },
+    {
+        image: 'https://i.ibb.co/qr1809n/archutechtural-Photography.jpg',
+        prev: 5,
+        id: 6,
+        next: 1,
+        name: 'Architectural Photography',
+        price: 800
+    }
+]
 
 const Banner = () => {
     return (
-        <div className="carousel w-3/4 mx-auto my-12">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" alt='' />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" alt="" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" alt="" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide4" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" alt="" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
+        <div>
+            <div className="carousel w-full py-12">
+                {
+                    bannerData.map(slide => <BannerItem key={slide.id} slide={slide}></BannerItem>)
+                }
             </div>
         </div>
     );
