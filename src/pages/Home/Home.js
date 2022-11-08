@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import Service from '../Shared/service/Service';
+import Showcase from '../Showcase/Showcase';
 const Home = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
             <div className='flex justify-center mb-12'>
                 <button className="btn glass bg-black hover:text-black">More Services</button>
             </div>
+            <Showcase></Showcase>
         </div>
     );
 };
