@@ -1,8 +1,19 @@
 import React from 'react';
 
 const Review = ({ reviewData }) => {
-    console.log(reviewData)
-    const { name, review, imgUrl } = reviewData
+    const { _id, name, review, imgUrl } = reviewData
+
+    const handleDelete = id => {
+        const procced = window.confirm('Are you sure delete this Review!')
+        if (procced) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE'
+            })
+                .then(() => { })
+                .catch(err => console.log(err))
+        }
+    }
+
     return (
 
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
@@ -11,7 +22,7 @@ const Review = ({ reviewData }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{review}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary mt-8">Update Now</button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary mt-8">Delete</button>
                 </div>
             </div>
         </div>

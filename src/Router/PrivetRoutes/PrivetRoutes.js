@@ -7,7 +7,11 @@ const PrivetRoutes = ({ children }) => {
     const location = useLocation();
 
     if (loadding) {
-        return <progress className="progress w-2/4 mx-auto mt-96"></progress>
+        return <button type="button" class="bg-indigo-500 ..." disabled>
+            <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+            </svg>
+            Processing...
+        </button>
     }
 
     if (!user) {

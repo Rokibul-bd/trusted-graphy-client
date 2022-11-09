@@ -8,6 +8,7 @@ const Header = () => {
             .then(() => { })
             .catch(err => console.log(err))
     }
+    console.log('userDetails', user)
 
     return (
         <div>
@@ -21,8 +22,8 @@ const Header = () => {
                         <li><Link to="/blogs">Blogs</Link></li>
                         {
                             user?.email ? <>
-                                <li><Link to="">My Reviews</Link></li>
-                                <li><Link to="">Add Service</Link></li>
+                                <li><Link to="/reviews">My Reviews</Link></li>
+                                <li><Link to="/addservice">Add Service</Link></li>
                                 <li><p>{user?.email}</p></li><button onClick={handleLogOut} className='btn'>Log Out</button>
                             </> : <><li><Link to="/login">Log In</Link></li>
                                 <li><Link to="/register">Sign Up</Link></li>

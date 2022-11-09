@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
-const ReviewInput = () => {
-    const { user } = useContext(AuthContext)
 
-    const handleReviewForm = e => {
+const UpdateReview = () => {
+    const { user } = useContext(AuthContext)
+    const handleReviewAdd = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -12,31 +12,33 @@ const ReviewInput = () => {
         const imgUrl = form.imgUrl.value;
         const email = form.email.value;
 
-        const myReviews = {
+        const updateReviews = {
             name,
             review,
             imgUrl,
             email
         }
 
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
+        return updateReviews;
+    }
+    const handleUpdate = id => {
+        const updateData = handleReviewAdd
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(myReviews)
+            body: JSON.stringify(updateData)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                form.reset()
             })
             .catch(err => console.error(err))
-
-
     }
+
     return (
-        <form onSubmit={handleReviewForm} className="w-2/4 mx-auto">
+        <form onSubmit={handleReviewAdd} className="w-2/4 mx-auto my-56">
             <div>
                 <input type="text" name="name" placeholder="Name" className="input input-bordered input-error w-full mb-12" required />
             </div>
@@ -47,9 +49,9 @@ const ReviewInput = () => {
             <br />
             <input type="text" placeholder="Img Url" className="input input-bordered input-success w-full  my-8" name="imgUrl" required />
             <br />
-            <button type='submit' className='btn'>Add Review</button>
+            <button onClick={handleUpdate} type='submit' className='btn'>Update Review</button>
         </form>
     );
 };
 
-export default ReviewInput;
+export default UpdateReview;

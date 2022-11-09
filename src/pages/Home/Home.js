@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthorInfo from '../AuthorInfo/AuthorInfo';
 import Banner from '../Banner/Banner';
 import Service from '../Shared/service/Service';
 import Showcase from '../Showcase/Showcase';
@@ -24,6 +25,7 @@ const Home = () => {
                 <Link to="/allservices"><button className="btn glass bg-black hover:text-black">More Services</button></Link>
             </div>
             <Showcase></Showcase>
+            <AuthorInfo></AuthorInfo>
         </div>
     );
 };
