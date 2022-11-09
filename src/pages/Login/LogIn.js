@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import GoogleSign from '../Shared/GoogleSignButton/GoogleSign';
 
 const LogIn = () => {
     const { logIn } = useContext(AuthContext);
@@ -54,6 +55,9 @@ const LogIn = () => {
                 </div>
             </div>
             <p className='text-red-400'>{error}</p>
+            <div>
+                <GoogleSign></GoogleSign>
+            </div>
             <div>
                 <button type="submit" className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">

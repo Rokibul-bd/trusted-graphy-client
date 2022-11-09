@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import GoogleSign from '../Shared/GoogleSignButton/GoogleSign';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -60,7 +61,9 @@ const Register = () => {
                 </div>
                 <p className='text-red-400 mx-8'>{error}</p>
                 <small className='px-8 text-base'>Already haven account? <Link className='link-hover text-yellow-500' to="/login">Log In</Link> </small>
-
+                <div className='mx-12 my-12'>
+                    <GoogleSign></GoogleSign>
+                </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                     <button type="submit" className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Up</button>
                 </div>

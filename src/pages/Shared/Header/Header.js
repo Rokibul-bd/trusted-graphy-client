@@ -8,6 +8,7 @@ const Header = () => {
             .then(() => { })
             .catch(err => console.log(err))
     }
+
     return (
         <div>
             <div className="navbar bg-base">
@@ -18,10 +19,10 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/blogs">Blogs</Link></li>
-                        <li><p>{user?.email}</p></li>
                         {
-                            user?.email ? <button onClick={handleLogOut} className='btn'>Log Out</button> : <><li><Link to="/login">Log In</Link></li>
-                                <li><Link to="/register">Sign Up</Link></li></>
+                            user?.email ? <><li><p>{user?.email}</p></li> : <button onClick={handleLogOut} className='btn'>Log Out</button></> : <><li><Link to="/login">Log In</Link></li>
+                                <li><Link to="/register">Sign Up</Link></li>
+                            </>
                         }
 
                     </ul>
