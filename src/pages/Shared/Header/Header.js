@@ -20,7 +20,11 @@ const Header = () => {
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/blogs">Blogs</Link></li>
                         {
-                            user?.email ? <><li><p>{user?.email}</p></li> : <button onClick={handleLogOut} className='btn'>Log Out</button></> : <><li><Link to="/login">Log In</Link></li>
+                            user?.email ? <>
+                                <li><Link to="">My Reviews</Link></li>
+                                <li><Link to="">Add Service</Link></li>
+                                <li><p>{user?.email}</p></li><button onClick={handleLogOut} className='btn'>Log Out</button>
+                            </> : <><li><Link to="/login">Log In</Link></li>
                                 <li><Link to="/register">Sign Up</Link></li>
                             </>
                         }
