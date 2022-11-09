@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <form className='md:w-2/4 mx-auto my-60 mt-60'>
+            <h3 className='text-4xl text-center mb-12'>Please Sign Up Now!</h3>
             <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
                     <div className="grid grid-cols-6 gap-6">

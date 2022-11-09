@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Showcase = () => {
     return (
@@ -9,7 +10,7 @@ const Showcase = () => {
                     <h1 className="text-5xl font-bold">Breacking News!</h1>
                     <p className="py-6 text-xl">Perchuse my any Premium Photography order you can get Basic Photo Graphy 2 Hours</p>
                     <p className="py-6 text-lg">Capture your Best Moment && you Want you can caputer your moments</p>
-                    <button className="btn btn-primary">Perchuse Services</button>
+                    <Link to="/allservices"><button className="btn btn-primary">Perchuse Services</button></Link>
                 </div>
             </div>
         </div>

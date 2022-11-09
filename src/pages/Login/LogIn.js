@@ -3,6 +3,7 @@ import React from 'react';
 const LogIn = () => {
     return (
         <form className="space-y-6 md:w-2/4 mx-auto my-60 mt-60">
+            <h3 className='text-4xl text-center mb-12'>Please Log In</h3>
             <input type="hidden" name="remember" value="true" />
             <div className="-space-y-px rounded-md shadow-sm">
                 <div>
