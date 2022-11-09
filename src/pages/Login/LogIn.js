@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const LogIn = () => {
+    const { logIn } = useContext(AuthContext);
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const handleLogIn = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        logIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                setError('')
+                form.reset()
+                navigate(from, { replace: true })
+            })
+            .catch(err => {
+                setError(err.message)
+                console.error(err)
+            })
+    }
     return (
-        <form className="space-y-6 md:w-2/4 mx-auto my-60 mt-60">
+        <form onSubmit={handleLogIn} className="space-y-6 md:w-2/4 mx-auto my-60 mt-60">
             <h3 className='text-4xl text-center mb-12'>Please Log In</h3>
             <input type="hidden" name="remember" value="true" />
             <div className="-space-y-px rounded-md shadow-sm">
                 <div>
-                    <label for="email-address" className="sr-only mb-12">Email address</label>
+                    <label htmlFor="email-address" className="sr-only mb-12">Email address</label>
                     <input id="email-address" name="email" type="email" autocomplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address" />
                 </div>
                 <div>
-                    <label for="password" className="sr-only">Password</label>
+                    <label htmlFor="password" className="sr-only">Password</label>
                     <input id="password" name="password" type="password" autocomplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
                 </div>
             </div>
@@ -19,14 +44,14 @@ const LogIn = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
                     <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label for="remember-me" className="ml-2 block text-sm text-gray-900">Remember me</label>
+                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">Remember me</label>
                 </div>
 
                 <div className="text-sm">
                     <a href="/" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
                 </div>
             </div>
-
+            <p className='text-red-400'>{error}</p>
             <div>
                 <button type="submit" className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">

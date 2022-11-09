@@ -6,6 +6,7 @@ import Home from "../../pages/Home/Home";
 import LogIn from "../../pages/Login/LogIn";
 import Register from "../../pages/Register/Register";
 import ServiceDetails from "../../pages/serviceDetails/ServiceDetails";
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blogs',
-                element: <Blogs></Blogs>,
+                element: <PrivetRoutes><Blogs></Blogs></PrivetRoutes>,
                 loader: () => fetch('http://localhost:5000/blogs')
 
             },
