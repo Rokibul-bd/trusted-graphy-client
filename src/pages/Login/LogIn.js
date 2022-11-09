@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const LogIn = () => {
     const { logIn } = useContext(AuthContext);
@@ -8,6 +9,7 @@ const LogIn = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
+    useTitle('Log in')
     const handleLogIn = (e) => {
         e.preventDefault()
         const form = e.target;
