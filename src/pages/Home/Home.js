@@ -7,7 +7,7 @@ import Showcase from '../Showcase/Showcase';
 const Home = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://trusted-graphy-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.log(err))
@@ -22,7 +22,7 @@ const Home = () => {
                 }
             </div>
             <div className='flex justify-center mb-12'>
-                <Link to="/allservices"><button className="btn glass bg-black hover:text-black">More Services</button></Link>
+                <Link to="/allservices"><button className="btn glass bg-black hover:text-black">See All</button></Link>
             </div>
             <Showcase></Showcase>
             <AuthorInfo></AuthorInfo>

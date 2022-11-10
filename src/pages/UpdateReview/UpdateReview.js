@@ -23,7 +23,7 @@ const UpdateReview = () => {
     }
     const handleUpdate = id => {
         const updateData = handleReviewAdd
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://trusted-graphy-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

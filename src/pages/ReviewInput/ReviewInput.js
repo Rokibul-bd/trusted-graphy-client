@@ -19,7 +19,7 @@ const ReviewInput = () => {
             email
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://trusted-graphy-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

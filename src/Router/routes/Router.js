@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://trusted-graphy-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/allservices',
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('https://trusted-graphy-server.vercel.app/blogs')
 
             },
             {
@@ -60,6 +60,10 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <div>This routes not data found!</div>
     }
 ])
 

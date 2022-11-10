@@ -6,7 +6,7 @@ const AllServices = () => {
     const [services, setServices] = useState([])
     useTitle('services')
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://trusted-graphy-server.vercel.app/allservices')
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.error(err))

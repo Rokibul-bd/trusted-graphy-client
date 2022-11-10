@@ -7,7 +7,7 @@ const Review = ({ reviewData }) => {
     const handleDelete = id => {
         const procced = window.confirm('Are you sure delete this Review!')
         if (procced) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://trusted-graphy-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(() => { })

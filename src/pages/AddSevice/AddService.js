@@ -8,7 +8,6 @@ const AddService = () => {
         const body = form.body.value;
         const price = form.price.value;
         const imgUrl = form.imgUrl.value;
-        console.log(name, body, price, imgUrl)
         const myService = {
             name,
             body,
@@ -23,7 +22,9 @@ const AddService = () => {
             },
             body: JSON.stringify(myService)
         })
-            .then(() => { })
+            .then(() => {
+                form.reset()
+            })
             .catch(err => console.error(err))
     }
     return (
