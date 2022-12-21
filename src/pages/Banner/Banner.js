@@ -55,7 +55,7 @@ const bannerData = [
 
 const Banner = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <div className="carousel w-full py-12">
                 {
                     bannerData.map(slide => <BannerItem key={slide.id} slide={slide}></BannerItem>)

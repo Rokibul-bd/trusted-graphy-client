@@ -13,10 +13,12 @@ const AllServices = () => {
     }, [services])
 
     return (
-        <div className='grid md:grid-cols-2 my-56 gap-12'>
-            {
-                services.map(service => <Service key={service._id} service={service}></Service>)
-            }
+        <div className="container mx-auto">
+            <div className='grid md:grid-cols-2 my-56 gap-12'>
+                {
+                    services.map(service => <Service key={service._id} service={service}></Service>)
+                }
+            </div>
         </div>
     );
 };

@@ -16,10 +16,12 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <h4 className='text-6xl text-center'>My Serviceses</h4>
-            <div className='grid lg:grid-cols-2 justify-center gap-12 my-36'>
-                {
-                    services.map(service => <Service key={service._id} service={service}></Service>)
-                }
+            <div className="container mx-auto">
+                <div className='grid lg:grid-cols-2 justify-center gap-12 my-36'>
+                    {
+                        services.map(service => <Service key={service._id} service={service}></Service>)
+                    }
+                </div>
             </div>
             <div className='flex justify-center mb-12'>
                 <Link to="/allservices"><button className="btn glass bg-black hover:text-black">See All</button></Link>
